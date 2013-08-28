@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Company:</b>
+  <%= @information.company %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @information.type %>
+</p>
+
+<p>
+  <b>Create at:</b>
+  <%= @information.create_at %>
+</p>
+
+<p>
+  <b>Salary:</b>
+  <%= @information.salary %>
+</p>
+
+<p>
+  <b>String:</b>
+  <%= @information.string %>
+</p>
+
+
+<%= link_to 'Edit', edit_information_path(@information) %> |
+<%= link_to 'Back', information_index_path %>
