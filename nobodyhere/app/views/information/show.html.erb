@@ -1,30 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Company:</b>
+  <b>公司</b>
   <%= @information.company %>
 </p>
 
 <p>
-  <b>Type:</b>
+  <b>职位类型:</b>
   <%= @information.type %>
 </p>
 
-<p>
-  <b>Create at:</b>
-  <%= @information.create_at %>
-</p>
 
 <p>
-  <b>Salary:</b>
+  <b>薪水（万每年）:</b>
   <%= @information.salary %>
 </p>
 
 <p>
-  <b>String:</b>
-  <%= @information.string %>
+  <b>备注:</b>
+  <%= @information.comment %>
 </p>
 
+<p>
+  <b>创建时间:</b>
+  <%= @information.created_at %>
+</p>
 
 <%= link_to 'Edit', edit_information_path(@information) %> |
 <%= link_to 'Back', information_index_path %>

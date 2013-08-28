@@ -1,14 +1,12 @@
-<h1>Listing information</h1>
+<h1>密信列表</h1>
 
-<table>
+<table class="table table-bordered table-striped center-table">
   <tr>
-    <th>Company</th>
-    <th>Type</th>
-    <th>Create at</th>
-    <th>Salary</th>
-    <th>String</th>
-    <th></th>
-    <th></th>
+    <th>公司</th>
+    <th>职位</th>   
+    <th>薪水（万每年）</th>
+    <th>备注</th>
+    <th>创建时间</th>
     <th></th>
   </tr>
 
@@ -16,16 +14,15 @@
   <tr>
     <td><%= information.company %></td>
     <td><%= information.type %></td>
-    <td><%= information.create_at %></td>
+    
     <td><%= information.salary %></td>
-    <td><%= information.string %></td>
-    <td><%= link_to 'Show', information %></td>
-    <td><%= link_to 'Edit', edit_information_path(information) %></td>
-    <td><%= link_to 'Destroy', information, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= information.comment %></td>
+    <td><%= information.created_at %></td>
+    <td><%= link_to '详细', information, :class => 'btn'%></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Information', new_information_path %>
+<%= link_to '新密件', new_information_path, :class => 'btn btn-primary' %>

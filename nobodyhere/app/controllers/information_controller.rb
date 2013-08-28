@@ -41,7 +41,8 @@ class InformationController < ApplicationController
   # POST /information.json
   def create
     @information = Information.new(params[:information])
-
+    @information.created_at = Time.now
+    
     respond_to do |format|
       if @information.save
         format.html { redirect_to @information, notice: 'Information was successfully created.' }
