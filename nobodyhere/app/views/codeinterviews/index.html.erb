@@ -1,7 +1,10 @@
 <%- model_class = Codeinterview -%>
 <div class="page-header">
-  <h1>面试题列表</h1>
+  <h1>面试题列表<small>（<%= link_to "按公司排序", {:controller => "codeinterviews", :action => "index", :order=> "company"} %>、
+  	<%= link_to "按更新时间排序", {:controller => "codeinterviews", :action => "index", :order=> "created_at"} %>
+  	）</small></h1>
 </div>
+
 <table class="table table-bordered table-striped center-table">
   <thead>
     <tr>
@@ -23,7 +26,7 @@
         <td><%= codeinterview.company %></td>
         <td><%= codeinterview.content %></td>
         <td><%= codeinterview.created_at %></td>
-        <td><%= link_to '详细', codeinterview, :class => 'btn btn-mini'%></td>
+        <td><!--<%= link_to "赞", {:controller => "codeinterviews", :action => "zan", :id=> codeinterview.id}, :class => 'btn btn-mini btn-danger' %> --><%= link_to '详细', codeinterview, :class => 'btn btn-mini'%></td>
       </tr>
     <% end %>
   </tbody>

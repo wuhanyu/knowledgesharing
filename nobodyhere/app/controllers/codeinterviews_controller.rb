@@ -2,7 +2,8 @@ class CodeinterviewsController < ApplicationController
   # GET /codeinterviews
   # GET /codeinterviews.json
   def index
-    @codeinterviews = Codeinterview.order('created_at DESC').all
+    @order = params[:order]?params[:order]:"created_at"
+    @codeinterviews = Codeinterview.order(@order + ' DESC').all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -20,6 +21,14 @@ class CodeinterviewsController < ApplicationController
       format.json { render json: @codeinterview }
     end
   end
+  
+  # GET /codeinterviews/zan/1
+  # GET /codeinterviews/zan/1.json
+  def zan
+    @codeinterview = Codeinterview.find(params[:id])
+    @codeinterview.zan_number = @codeinterview.zan_number ? (@codeinterview.zan_number + 1) : 1
+    @codeinterview.save
+  end
 
   # GET /codeinterviews/new
   # GET /codeinterviews/new.json
@@ -31,6 +40,7 @@ class CodeinterviewsController < ApplicationController
       format.json { render json: @codeinterview }
     end
   end
+  
 
 
   # POST /codeinterviews
