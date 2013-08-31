@@ -5,15 +5,21 @@
 <table class="table table-bordered table-striped center-table">
   <thead>
     <tr>
+      <th width="10%"></th>
       <th width="10%">公司名</th>
       <th width="55%">面试题内容</th>
-      <th width="25%">创建时间</th>
+      <th width="14%">创建时间</th>
       <th width="10%"></th>
     </tr>
   </thead>
   <tbody>
     <% @codeinterviews.each do |codeinterview| %>
       <tr>
+      	<td><%
+      		if (codeinterview.created_at > 3.day.ago)
+      			%><span class="label label-warning">最新</span><%
+      		end
+      	    %></td>
         <td><%= codeinterview.company %></td>
         <td><%= codeinterview.content %></td>
         <td><%= codeinterview.created_at %></td>
