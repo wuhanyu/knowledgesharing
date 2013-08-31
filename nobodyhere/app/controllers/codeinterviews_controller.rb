@@ -2,7 +2,7 @@ class CodeinterviewsController < ApplicationController
   # GET /codeinterviews
   # GET /codeinterviews.json
   def index
-    @codeinterviews = Codeinterview.all
+    @codeinterviews = Codeinterview.order('created_at DESC').all
 
     respond_to do |format|
       format.html # index.html.erb
