@@ -1,0 +1,30 @@
+<%- model_class = Codeinterview -%>
+<div class="page-header">
+  <h1>面试题列表</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>公司名</th>
+      <th>面试题内容</th>
+      <th>创建时间</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @codeinterviews.each do |codeinterview| %>
+      <tr>
+        <td><%= codeinterview.company %></td>
+        <td><%= codeinterview.content %></td>
+        <td><%= codeinterview.created_at %></td>
+        <td>
+          <td><%= link_to '详细', codeinterview, :class => 'btn btn-mini'%></td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '新建面试题',
+            new_codeinterview_path,
+            :class => 'btn btn-primary' %>

@@ -1,0 +1,27 @@
+<%= form_for @codeinterview, :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @codeinterview.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@codeinterview.errors.count, "error") %> prohibited this information from being saved:</h2>
+
+      <ul>
+      <% @codeinterview.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :公司 %><br>
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :面试题内容%><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                codeinterviews_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -32,10 +32,7 @@ class InformationController < ApplicationController
     end
   end
 
-  # GET /information/1/edit
-  def edit
-    @information = Information.find(params[:id])
-  end
+
 
   # POST /information
   # POST /information.json
@@ -51,34 +48,6 @@ class InformationController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @information.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PUT /information/1
-  # PUT /information/1.json
-  def update
-    @information = Information.find(params[:id])
-
-    respond_to do |format|
-      if @information.update_attributes(params[:information])
-        format.html { redirect_to @information, notice: 'Information was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @information.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /information/1
-  # DELETE /information/1.json
-  def destroy
-    @information = Information.find(params[:id])
-    @information.destroy
-
-    respond_to do |format|
-      format.html { redirect_to information_index_url }
-      format.json { head :no_content }
     end
   end
 end

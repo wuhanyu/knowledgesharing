@@ -1,30 +1,19 @@
 <p id="notice"><%= notice %></p>
+<dl class="dl-horizontal">
+    <dt>公司</dt>
+  <dd><%= @information.company %></dd>
 
-<p>
-  <b>公司</b>
-  <%= @information.company %>
-</p>
+  <dt>职位类型:</dt>
+  <dd><%= @information.type %></dd>
 
-<p>
-  <b>职位类型:</b>
-  <%= @information.type %>
-</p>
+  <dt>薪水（万每年）:</dt>
+  <dd><%= @information.salary %></dd>
 
+  <dt>备注:</dt>
+  <dd><%= @information.comment %></dd>
 
-<p>
-  <b>薪水（万每年）:</b>
-  <%= @information.salary %>
-</p>
-
-<p>
-  <b>备注:</b>
-  <%= @information.comment %>
-</p>
-
-<p>
-  <b>创建时间:</b>
-  <%= @information.created_at %>
-</p>
-
+  <dt>创建时间:</dt>
+  <dd><%= @information.created_at %></dd>
+<dl>
 <%= link_to 'Edit', edit_information_path(@information) %> |
 <%= link_to 'Back', information_index_path %>
