@@ -2,9 +2,9 @@ class CodeinterviewsController < ApplicationController
   # GET /codeinterviews
   # GET /codeinterviews.json
   def index
-    @order = params[:order]?params[:order]:"created_at"
+    @order = params[:order]?params[:order]:(session[:order]?session[:order]:"created_at")
+    session[:order] = @order
     @codeinterviews = Codeinterview.order(@order + ' DESC').all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @codeinterviews }
@@ -28,6 +28,7 @@ class CodeinterviewsController < ApplicationController
     @codeinterview = Codeinterview.find(params[:id])
     @codeinterview.zan_number = @codeinterview.zan_number ? (@codeinterview.zan_number + 1) : 1
     @codeinterview.save
+    redirect_to codeinterviews_url, notice: "Zan successfully"
   end
 
   # GET /codeinterviews/new

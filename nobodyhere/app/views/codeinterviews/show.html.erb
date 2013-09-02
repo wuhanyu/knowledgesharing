@@ -2,7 +2,9 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
-
+  <% if notice != nil %>
+  	<div class="alert alert-info" id="notice"><%= notice %></div>
+  <% end %>
 <dl class="dl-horizontal">
 	  <dt>公司</dt>
 	  <dd><%= @codeinterview.company %><dd>

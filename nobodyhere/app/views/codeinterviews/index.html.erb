@@ -1,6 +1,7 @@
 <%- model_class = Codeinterview -%>
 <div class="page-header">
-  <h1>面试题列表<small>（<%= link_to "按公司排序", {:controller => "codeinterviews", :action => "index", :order=> "company"} %>、
+  <h1>面试题列表<small>（<%= link_to "按赞排序", {:controller => "codeinterviews", :action => "index", :order=> "zan_number"}  %>、
+  	<%= link_to "按公司排序", {:controller => "codeinterviews", :action => "index", :order=> "company"} %>、
   	<%= link_to "按更新时间排序", {:controller => "codeinterviews", :action => "index", :order=> "created_at"} %>
   	）</small></h1>
 </div>
@@ -15,6 +16,9 @@
       <th width="10%"></th>
     </tr>
   </thead>
+  <% if notice != nil %>
+  	<div class="alert alert-info" id="notice"><%= notice %></div>
+  <% end %>
   <tbody>
     <% @codeinterviews.each do |codeinterview| %>
       <tr>
@@ -22,11 +26,17 @@
       		if (codeinterview.created_at > 3.day.ago)
       			%><span class="label label-warning">最新</span><%
       		end
-      	    %></td>
+      	    %>
+      	    <%
+      		if (codeinterview.zan_number != nil)
+      			%><span class="label label-danger">赞 <%= codeinterview.zan_number%></span><%
+      		end
+      	    %>
+      	    </td>
         <td><%= codeinterview.company %></td>
         <td><%= codeinterview.content %></td>
         <td><%= codeinterview.created_at %></td>
-        <td><!--<%= link_to "赞", {:controller => "codeinterviews", :action => "zan", :id=> codeinterview.id}, :class => 'btn btn-mini btn-danger' %> --><%= link_to '详细', codeinterview, :class => 'btn btn-mini'%></td>
+        <td><%= link_to "赞", {:controller => "codeinterviews", :action => "zan", :id=> codeinterview.id}, :class => 'btn btn-mini btn-danger' %> <%= link_to '详细', codeinterview, :class => 'btn btn-mini'%></td>
       </tr>
     <% end %>
   </tbody>
