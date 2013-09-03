@@ -2,7 +2,7 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
-    @news = New.all
+    @news = New.order('created_at DESC').all
 
     respond_to do |format|
       format.html # index.html.erb
