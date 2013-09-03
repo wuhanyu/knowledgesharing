@@ -5,9 +5,11 @@
   	<%= link_to "按更新时间排序", {:controller => "codeinterviews", :action => "index", :order=> "created_at"} %>
   	）</small></h1>
 </div>
-<%= link_to '新建面试题',
-            new_codeinterview_path,
-            :class => 'btn btn-primary' %>
+<div class="row">
+  <%= link_to '我来分享一道面试题',
+              new_codeinterview_path,
+              :class => 'btn btn-primary' %>
+</div>
 <table class="table table-bordered table-striped center-table">
   <thead>
     <tr>
