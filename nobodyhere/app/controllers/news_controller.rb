@@ -53,6 +53,12 @@ class NewsController < ApplicationController
     end
   end
 
+  def jump
+    @news = New.find(params[:id])
+    @news.view_number = @news.view_number ? @news.view_number + 1 : 1
+    @news.save
+    redirect_to @news.web_urls
+  end
   # PUT /news/1
   # PUT /news/1.json
   def update

@@ -3,12 +3,14 @@
 <table class="table table-bordered table-striped center-table">
   <tr>
     <th>标题</th>
+    <th>浏览数</th>
     <th>获取时间</th>
   </tr>
 
 <% @news.each do |news| %>
   <tr>
-    <td><a href="<%= news.web_urls %>" target="_blank"><%= news.title %></a></td>
+    <td><%= link_to news.title , {:controller => "news", :action => "jump", :id=> news.id}, :target => "_blank"%></a></td>
+    <td><%= news.view_number ? news.view_number : 0 %></td>
     <td><%= news.created_at %></td>
   </tr>
 <% end %>

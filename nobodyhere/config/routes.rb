@@ -1,5 +1,9 @@
 Nobodyhere::Application.routes.draw do
-  resources :news
+  resources :news do
+    collection do
+      get 'jump'
+    end
+  end
 
 
   resources :codeinterviews do
