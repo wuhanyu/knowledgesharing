@@ -2,7 +2,9 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
-    @news = New.order('created_at DESC').all
+    @start = params[:start]?params[:start]:"0"
+    @start = @start.to_i
+    @news = New.order('created_at DESC').offset(@start).limit(50).all
 
     respond_to do |format|
       format.html # index.html.erb
